@@ -13,6 +13,7 @@ hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear()
 });
 
+
 app.use((req, res, next) => {
   var now = new Date().toString();
   var log = now + ":" + req.method + " "+ req.url;
@@ -35,6 +36,13 @@ app.get('/', (req,res) => {
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page',
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
+    welcomeText: 'Projects page Here'
   });
 });
 
